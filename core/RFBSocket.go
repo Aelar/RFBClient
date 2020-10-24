@@ -86,6 +86,14 @@ func (r RFBSocket) security(secFlag byte) error {
 
 }
 
+/*//WritenRead on socket for test only
+func (r RFBSocket) WritenRead(msg []byte, size int) []byte {
+
+	r.socket.Write(msg)
+	ans := r.read(size)
+	return ans
+}*/
+
 //Handshake handshake phase for rfb protocol
 func (r RFBSocket) Handshake() error {
 

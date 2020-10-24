@@ -29,8 +29,16 @@ func TestNewSetPixelFormat(t *testing.T) {
 
 func TestNewSetEncoding(t *testing.T) {
 
-	se, err := NewSetEncoding([]byte{2}, []byte{2, 23})
-	if spf.messageType != 0 {
+	se, _ := NewSetEncoding(uint8(2), uint16(76))
+	if se.messageType != 2 {
 		t.Errorf("Test failed, Wrong messageType")
+	}
+
+	if se.padding != 2 {
+		t.Errorf("Test failed, Wrong Padding")
+	}
+
+	if se.numberOfEncodings != 76 {
+		t.Errorf("Test failed, Wrong Number of encoding")
 	}
 }
